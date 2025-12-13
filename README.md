@@ -13,4 +13,4 @@
      -title & description
      -moviesuggestions
         -movielists
--netflix gpt        
+-netflix gpt
