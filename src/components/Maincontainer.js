@@ -12,7 +12,7 @@ const MainContainer  = () =>{
     // console.log(mainMovie);
     const {original_title, overview, id } = mainMovie;
     return(
-        <div className="relative w-screen">
+        <div className="relative w-full aspect-video overflow-hidden">
             <VideoTitle title={original_title} overview={overview} />
             <VideoBackGround movieId={id}/>
         </div>
