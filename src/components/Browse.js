@@ -1,4 +1,3 @@
-import { useTransition } from "react";
 import useNowPlayingMovies from "../hooks/useNowplayingMovies";
 import usePopularMovies from "../hooks/usePopularMovies";
 import useUpcomingMovies from "../hooks/useUpcomingMovies";
@@ -7,9 +6,13 @@ import MainContainer from "./Maincontainer";
 import SecondaryContainer from "./SecondaryContainer";
 import useTrendingMovies from "../hooks/useTrendingMovies";
 import useTopRated from "../hooks/useTopRated";
+import GptSearch from "./GptSearch";
+import { useSelector } from "react-redux";
 
 const Browse = () => {
     
+  const showGptSearch = useSelector(store=>store.gpt.showGptSearch);
+
     useNowPlayingMovies();
     usePopularMovies();
     useUpcomingMovies();
@@ -19,8 +22,11 @@ const Browse = () => {
   return (
     <div>
       <Header />
-      <MainContainer/>
-      <SecondaryContainer/>
+      {
+        showGptSearch ? <GptSearch/>: <> <MainContainer/> <SecondaryContainer/> </>
+      }
+     
+      
 
       {/* Maincontainer
        -videobg
